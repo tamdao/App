@@ -281,6 +281,10 @@ function Form(props) {
                     inputValues[inputID] = child.props.value;
                 }
 
+                if (child.props.autoFocus) {
+                    setTouchedInput(child.props.inputID);
+                }
+
                 const errorFields = lodashGet(props.formState, 'errorFields', {});
                 const fieldErrorMessage =
                     _.chain(errorFields[inputID])
